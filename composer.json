@@ -1,0 +1,17 @@
+{
+    "name": "digi/keha",
+    "description": "min framework",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Digi\\Keha\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hc"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
