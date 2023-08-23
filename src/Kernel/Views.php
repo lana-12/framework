@@ -3,6 +3,7 @@
 namespace Digi\Keha\Kernel;
 
 use Digi\Keha\Configuration\Config;
+use Digi\Keha\Kernel\Model;
 
 class Views
 {

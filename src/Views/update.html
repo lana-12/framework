@@ -1,0 +1,18 @@
+<main>
+
+    <form action="index.php?controller=index&method=update&id=<?= $user->getId() ?>" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="name" value="<?= $user->getName() ?>" >
+        </div>
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surname</label>
+            <input type="text" class="form-control" name="surname" id="surname" value="<?= $user->getSurname() ?>">
+        </div>
+        
+         <input type="submit" class="btn btn-primary" name='submit' value="Modifier">
+    </form>
+
+
+
+</main>

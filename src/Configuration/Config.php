@@ -7,7 +7,11 @@ class Config {
     public const TEMPLATES = 'Templates/';
 
 
-    public const TITLE_SITE = 'MVC';
+    public const DBHOST = 'localhost';
+    public const DBUSER = 'root';
+    public const DBPASS = '';
+    public const DBNAME = 'hamza';
+
 
 
 }

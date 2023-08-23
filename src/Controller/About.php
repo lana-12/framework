@@ -3,8 +3,9 @@
 namespace Digi\Keha\Controller;
 
 use Digi\Keha\Kernel\Views;
+use Digi\Keha\Kernel\AbstractController;
 
-class About {
+class About extends AbstractController{
 
     public function index()
     {
@@ -15,6 +16,7 @@ class About {
             ->setHtml('about.html')
             ->setFooter('footer.html')
             ->render([
+                'flash' => $this->getFlashMessage(),
                 'var' => 'Je suis une QUICHE',
                 'var2' => 'Je suis une PIZZA',
                 'title' => 'About',

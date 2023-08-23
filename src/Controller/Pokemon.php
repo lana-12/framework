@@ -3,9 +3,10 @@
 namespace Digi\Keha\Controller;
 
 use Digi\Keha\Kernel\Views;
+use Digi\Keha\Kernel\AbstractController;
 
 
-class Pokemon
+class Pokemon extends AbstractController
 {
 
     /**
@@ -21,6 +22,7 @@ class Pokemon
         $view->setHtml('salameche.html');
         $view->setFooter('footer.html');
         $view->render([
+            'flash' => $this->getFlashMessage(),
             'pokemon' => 'je suis  Salamèche',
             'pokemon2' => 'Je suis un autre TrucMuche',
             'title'=> 'Pokemon',
