@@ -5,7 +5,9 @@ namespace Digi\Keha\Controller;
 use Digi\Keha\Entity\Model;
 use Digi\Keha\Entity\Notes;
 use Digi\Keha\Entity\Users;
+use Digi\Keha\Kernel\Utils;
 use Digi\Keha\Kernel\Views;
+use Digi\Keha\Utils\MyFunction;
 use Digi\Keha\Kernel\AbstractController;
 
 
@@ -16,11 +18,10 @@ class User extends AbstractController{
     {
         $view = new Views();
         $tab = Users::getAll();
-        $user = Users::getByID(1);
+        $notes = Notes::getAll();
         // $notes = Model::findNotesByUser();
-        // MyFunction::dump($notes['users']);
+        // MyFunction::dump($notes);
         // die;
-        $note = Notes::getAll();
         $view->setHead('head.html');
         $view->setHeader('header.html');
         $view->setHtml('user.html');
@@ -32,20 +33,20 @@ class User extends AbstractController{
             'flash' => $this->getFlashMessage(),
             'users' => $tab,
             'titlePage' => 'Page User',
-            'notes' => $note
+            'notes' => $notes
         ]);
     }
 
     public function delete()
     {
         $result = false;
-        $this->setFlashMessage('aucun enregistrement ne correspond', 'error');
+        $this->setFlashMessage('Aucun enregistrement ne correspond', 'error');
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             $result = Users::delete($id);
         }
         if ($result) {
-            $this->setFlashMessage("L'enrregistrement est bien supprimé", "success");
+            $this->setFlashMessage("L'enregistrement a bien été supprimé", "success");
         }
         $this->index();
     }
@@ -79,7 +80,7 @@ class User extends AbstractController{
             if (isset($_POST['name']) && $_POST['name'] !== "") {
                 if (isset($_POST['surname']) && $_POST['surname'] !== "") {
                     $result = false;
-                    $this->setFlashMessage('aucun enregistrement ne correspond', 'error');
+                    $this->setFlashMessage('Aucun enregistrement ne correspond', 'error');
                     if (isset($_GET['id'])) {
                         $id = $_GET['id'];
                         $result = Users::update($id, ['name' => $_POST['name'], 'surname' => $_POST['surname']]);
@@ -117,7 +118,7 @@ class User extends AbstractController{
             if (isset($_POST['name']) && $_POST['name'] !== "") {
                 if (isset($_POST['surname']) && $_POST['surname'] !== "") {
                     $result = false;
-                    $this->setFlashMessage('aucun enregistrement ne correspond', 'error');
+                    $this->setFlashMessage('Aucun enregistrement ne correspond', 'error');
                     // var_dump($_POST['name']);
                     // var_dump($_POST['surname']);
 

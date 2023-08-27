@@ -1,6 +1,6 @@
 <?php
 
-namespace Digi\Keha\utils;
+namespace Digi\Keha\Utils;
 
 
 class MyFunction {

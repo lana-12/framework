@@ -47,7 +47,7 @@ class Model extends DataBase {
 
     public static function findNotesByUser()
     {
-        $sql = "SELECT notes.id, users.id as users
+        $sql = "SELECT notes.id, notes.note, users.id as users
             FROM notes
             LEFT JOIN users
             on user_id= users.id

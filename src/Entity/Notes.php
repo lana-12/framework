@@ -3,19 +3,20 @@
 namespace Digi\Keha\Entity;
 
 use Digi\Keha\Entity\Model;
+use Digi\Keha\Controller\User;
 use Digi\Keha\utils\MyFunction;
 
 class Notes extends Model
 {
     private int $id;
     private string $note;
-    private Users $user;
+    private User $user;
     
 
     /**
      * Get the value of id
      */ 
-    public function getId():string
+    public function getId()
     {
         return $this->id;
     }
@@ -35,7 +36,7 @@ class Notes extends Model
     /**
      * Get the value of notes
      */ 
-    public function getNote():string
+    public function getNote()
     {
         return $this->note;
     }
@@ -52,15 +53,24 @@ class Notes extends Model
         return $this;
     }
 
+
+    
+
     /**
      * Get the value of user
      */ 
-    // public function getUser()
-    // {
-    //     self::$user = Model::findNotesByUser();
-    //     MyFunction::dump(self::$user);
-    //     return self::$user;
-    // }
+    public function getUser()
+    {
+        return $this->user;
+    }
 
-    
+    /**
+     * Get the value of user
+     */ 
+    public function getUserId()
+    {
+        self::$user = Model::findNotesByUser();
+        MyFunction::dump(self::$user);
+        return self::$user;
+    }
 }

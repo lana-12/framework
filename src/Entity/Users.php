@@ -53,9 +53,8 @@ class Users extends Model{
 
     public function getNotes()
     {
-        $join = Notes::findNotesByUser();
-
-        var_dump($join);
-        die;
+        foreach($this->notes as $note){
+            return $note;
+        }
     }
 } 
