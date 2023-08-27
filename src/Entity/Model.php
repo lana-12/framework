@@ -1,43 +1,13 @@
 <?php
 
-namespace Digi\Keha\KERNEL;
+namespace Digi\Keha\Entity;
 
-use Digi\Keha\Configuration\Config;
-use PDO;
-use PDOException;
+use Digi\Keha\Kernel\DataBase;
 
 
-class Model extends PDO{
+class Model extends DataBase {
 
-    private static $instance = null;
     public static $className;
-
-
-
-    private function __construct(){
-        $dsn = 'mysql:dbname='. Config::DBNAME.';host='.CONFIG::DBHOST;
-
-        try{
-            parent::__construct($dsn, CONFIG::DBUSER, CONFIG::DBPASS);
-            $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
-            $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
-            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-
-        } catch (PDOException $e) {
-            $e = sprintf("[%s] : %s ligne %s", $e->getMessage(), $e->getFile(), $e->getLine()) . PHP_EOL;
-            // $this->createlogger('Error : ' . $e);
-            echo 'Oups !!! Une erreur est survenue';
-            die();
-        }
-    }
-
-    public static function getInstance()
-    {
-        if (self::$instance === null) {
-            self::$instance = new static();
-        }
-        return self::$instance;
-    }
 
     private static function getEntityName()
     {
@@ -82,7 +52,7 @@ class Model extends PDO{
             LEFT JOIN users
             on user_id= users.id
             
-        " ;
+        ";
         // var_dump($sql);
         return self::Execute($sql);
     }
@@ -134,14 +104,4 @@ class Model extends PDO{
     }
 
 
-// private function createlogger(string $message): void
-    // {
-    //     if (!is_dir('src/Kernel/Logger')) {
-    //         mkdir('src/Kernel/Logger', 0777, true);
-    //     }
-    //     file_put_contents('src/Kernel/Logger/' . date('Y-d-m') . '.log', $message . PHP_EOL, FILE_APPEND);
-    // }
-    
-
-    
 }

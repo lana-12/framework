@@ -1,0 +1,6 @@
+Error : [SQLSTATE[HY000] [1045] Access denied for user 'roo'@'localhost' (using password: NO)] : C:\xampp\htdocs\mes-sites\diginamic\mvc1\mvc\src\Kernel\DataBase.php ligne 22
+
+Error : [SQLSTATE[HY000] [1049] Unknown database 'hamz'] : C:\xampp\htdocs\mes-sites\diginamic\mvc1\mvc\src\Kernel\DataBase.php ligne 22
+
+Error : [SQLSTATE[HY000] [1045] Access denied for user 'roo'@'localhost' (using password: NO)] : C:\xampp\htdocs\mes-sites\diginamic\mvc1\mvc\src\Kernel\DataBase.php ligne 22
+

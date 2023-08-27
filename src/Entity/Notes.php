@@ -2,7 +2,7 @@
 
 namespace Digi\Keha\Entity;
 
-use Digi\Keha\KERNEL\Model;
+use Digi\Keha\Entity\Model;
 use Digi\Keha\utils\MyFunction;
 
 class Notes extends Model
