@@ -11,7 +11,7 @@ class Views
     private string $head;
     private string $header;
     private string $footer;
-    private string $title;
+    private string $flashMsg;
 
 
     public function setHtml(string $html): self

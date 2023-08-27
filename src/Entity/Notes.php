@@ -7,15 +7,15 @@ use Digi\Keha\utils\MyFunction;
 
 class Notes extends Model
 {
-    public int $id;
-    public string $note;
-    // public Users $user;
+    private int $id;
+    private string $note;
+    private Users $user;
     
 
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId():string
     {
         return $this->id;
     }
@@ -25,7 +25,7 @@ class Notes extends Model
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId($id):self
     {
         $this->id = $id;
 
@@ -35,7 +35,7 @@ class Notes extends Model
     /**
      * Get the value of notes
      */ 
-    public function getNote()
+    public function getNote():string
     {
         return $this->note;
     }
@@ -45,7 +45,7 @@ class Notes extends Model
      *
      * @return  self
      */ 
-    public function setNote($note)
+    public function setNote($note):self
     {
         $this->note = $note;
 

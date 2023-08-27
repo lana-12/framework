@@ -1,0 +1,29 @@
+<main class="container">
+    <h1><?= $titlePage; ?></h1>
+
+    <a href='index.php?controller=user&method=create' class="btn btn-primary">New User</a>
+
+
+
+<h2>Les Users de la BDD</h2>
+
+    
+    <?php 
+    foreach($users as $user){
+        echo '<p>Name : ' .$user->getName() . '</p>';
+        echo '<p>Surname : ' .$user->getSurname() . '</p>';
+        foreach($notes as $note){
+                if($note->user_id === $user->getId()){
+                    echo '<p>Notes :' .$note->getNote() . '</p>';
+                } 
+                
+            }
+        
+        echo "<a class='btn btn-danger' href='index.php?controller=user&method=delete&id=".$user->getId()."' >Supprimer</a><br>";
+        echo "<a class='btn btn-warning' href='index.php?controller=user&method=edit&id=".$user->getId()."' >Modifier</a><br>";
+    }
+    
+    ;?>
+    
+    
+</main>

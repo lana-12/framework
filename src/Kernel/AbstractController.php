@@ -14,11 +14,11 @@ class AbstractController
     public function setFlashMessage(string $message, string $type)
     {
         if ($type === 'success') {
-            $this->flashMessage = "<p style='background-color: green;color: #ffffff;'>$message</p>";
+            $this->flashMessage = "<div class='alert alert-success text-center' role='alert'>$message</div>";
             return $this;
         }
         if ($type === 'error') {
-            $this->flashMessage = "<p style='background-color: red;color: #ffffff;'>$message</p>";
+            $this->flashMessage = "<div class='alert alert-danger text-center' role='alert'>$message</div>";
             return $this;
         }
         $this->flashMessage = "<p>$message</p>";

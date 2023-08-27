@@ -9,22 +9,14 @@ class Users extends Model{
     private int $id;
     private string $name;
     private string $surname;
-    private string $notes;
+    private array $notes;
 
 
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
+    public function getId():string
     {
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
     public function setId($id):self
     {
         $this->id = $id;
@@ -32,19 +24,11 @@ class Users extends Model{
         return $this;
     }
 
-    /**
-     * Get the value of name
-     */ 
-    public function getName()
+    public function getName():string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
     public function setName($name):self
     {
         $this->name = $name;
@@ -52,19 +36,11 @@ class Users extends Model{
         return $this;
     }
 
-    /**
-     * Get the value of surname
-     */ 
-    public function getSurname()
+    public function getSurname():string
     {
         return $this->surname;
     }
 
-    /**
-     * Set the value of surname
-     *
-     * @return  self
-     */ 
     public function setSurname($surname)
     {
         $this->surname = $surname;
@@ -75,14 +51,11 @@ class Users extends Model{
 
     
 
-    /**
-     * Get the value of notes
-     */ 
-    // public function getNotes()
-    // {
-    //     $join = Notes::findNotesByUser();
+    public function getNotes()
+    {
+        $join = Notes::findNotesByUser();
 
-    //     var_dump($join);
-    //     die;
-    // }
+        var_dump($join);
+        die;
+    }
 } 
