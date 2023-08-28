@@ -5,6 +5,7 @@ class Config {
     public const CONTROLLER = 'Digi\Keha\Controller\\';
     public const VIEWS = 'Views/';
     public const TEMPLATES = 'Templates/';
+    public const FORMS = 'Views/Form/';
 
 
     public const DBHOST = 'localhost';

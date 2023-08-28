@@ -1,0 +1,31 @@
+<main>
+
+    <form action="index.php?controller=note" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="name" placeholder="Name">
+        </div>
+        <select class="form-select" aria-label="Default select example">
+  <option selected>Sélectionner un User</option>
+
+  <?php
+  foreach($user as $user){
+      echo '<option value=".'$user->getId()'.">$user->getName()</option>'
+
+  }
+
+  ?>
+  
+</select>
+        
+        <div class="mb-3">
+            <label for="surname" class="form-label">Surnam</label>
+            <input type="text" class="form-control" name="surname" id="surname" placeholder="Surname">
+        </div>
+        
+         <input type="submit" class="btn btn-primary" name='submit' value="Enregistrer">
+    </form>
+
+
+
+</main>

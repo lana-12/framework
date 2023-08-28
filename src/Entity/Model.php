@@ -5,7 +5,7 @@ namespace Digi\Keha\Entity;
 use Digi\Keha\Kernel\DataBase;
 
 
-class Model extends DataBase {
+class Model  {
 
     public static $className;
 
@@ -24,7 +24,7 @@ class Model extends DataBase {
 
     private static function Execute($sql)
     {
-        $pdostatement = self::getInstance()->query($sql);
+        $pdostatement = DataBase::getInstance()->query($sql);
         return $pdostatement->fetchAll(\PDO::FETCH_CLASS, self::getClassName());
     }
 
@@ -58,7 +58,6 @@ class Model extends DataBase {
     }
 
 
-
     public static function insert(array $datas)
     {
         $sql = "insert into " . self::getEntityName() . " values (NULL,";
@@ -73,7 +72,7 @@ class Model extends DataBase {
             $i++;
         }
         $sql .= ")";
-        return self::getInstance()->exec($sql);
+        return DataBase::getInstance()->exec($sql);
     }
 
 
@@ -81,7 +80,7 @@ class Model extends DataBase {
     public static function delete(int $id)
     {
         $sql = "delete from " . self::getEntityName() . " where id=$id";
-        return self::getInstance()->exec($sql);
+        return DataBase::getInstance()->exec($sql);
     }
 
 
@@ -100,7 +99,7 @@ class Model extends DataBase {
             $i++;
         }
         $sql .= " where id=$id";
-        return self::getInstance()->exec($sql);
+        return DataBase::getInstance()->exec($sql);
     }
 
 

@@ -10,7 +10,8 @@ class Notes extends Model
 {
     private int $id;
     private string $note;
-    private User $user;
+    private int $user_id;
+    private User $user ;
     
 
     /**
@@ -67,10 +68,30 @@ class Notes extends Model
     /**
      * Get the value of user
      */ 
-    public function getUserId()
+    // public function getUserId()
+    // {
+    //     $this->user = Model::findNotesByUser();
+    //     MyFunction::dump($this->user);
+    //     return $this->user;
+    // }
+
+    /**
+     * Get the value of user_id
+     */ 
+    public function getUser_id()
     {
-        self::$user = Model::findNotesByUser();
-        MyFunction::dump(self::$user);
-        return self::$user;
+        return $this->user_id;
+    }
+
+    /**
+     * Set the value of user_id
+     *
+     * @return  self
+     */ 
+    public function setUser_id($user_id)
+    {
+        $this->user_id = $user_id;
+
+        return $this;
     }
 }

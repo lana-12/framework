@@ -20,7 +20,7 @@
         
         foreach($notes as $note){
 
-            if($note->user_id == $user->getId()){
+            if($note->getUser_id() == $user->getId()){
                 echo '<p>Notes :' .$note->getNote() . '</p>';
             } 
             

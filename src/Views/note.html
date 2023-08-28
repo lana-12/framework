@@ -1,0 +1,35 @@
+<main class="container">
+
+    <h1> <?= $titlePage; ?> </h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Note</th>
+      <th scope="col">User</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<?php 
+    foreach($notes as $note){
+
+        echo ' <tr>';
+            echo '<th scope="row">'.$note->getId().'</th>' ;
+            echo '<td>'.$note->getNote().'</td>' ;
+
+            foreach($users as $user){
+                if($note->getUser_id() ==  $user->getId()){
+                    echo '<td>'.$user->getName().'</td>' ;
+                }
+            }
+        echo'</tr>';
+
+    };
+    
+?>
+  </tbody>
+</table>
+    
+    
+</main>
